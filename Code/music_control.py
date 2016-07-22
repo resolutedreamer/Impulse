@@ -84,7 +84,7 @@ def playSong(title, com):
     if(maximum < 0):
         intervalSize = (minimum - maximum)/7;
     else:
-        intervalSize = (maximum-minimum)/7;
+        intervalSize = (maximum - minimum)/7;
 
     while(index < total_size):
       if(data[index] < -18000):
@@ -117,20 +117,20 @@ def playSong(title, com):
     #read data  
     data = f.readframes(chunk)  
 
-    #paly stream  
+    #play stream  
     while data != '':
 ##        if (forward == True):
 ##           forward = false;
 ##           return;
         
         try:
-			previous_light = light
+            previous_light = light
             light = light_mapping.pop()
             print(previous_light)
-			print(light)
-			if light != previous_light:
-				arduino.write(str(light))
-				send_to_mongo(light)
+            print(light)
+            if light != previous_light:
+                arduino.write(str(light))
+                send_to_mongo(light)
         except:
             pass
         
