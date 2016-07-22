@@ -3,7 +3,7 @@ Impulse
 #######
 Impulse is a project created for UCLA's hardware hackathon, IDEA Hacks, which ran January 15th-17th 2016.
 
-BLE_UART_8001
+Impulse
 ======
 A sample app like [nRF UART (iOS)](https://itunes.apple.com/us/app/nrf-uart/id614594903?mt=8) and [nRF UART 2.0 (Android)](https://play.google.com/store/apps/details?id=com.nordicsemi.nrfUARTv2&hl=en), but for Windows Phone 8.1
 
