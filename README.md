@@ -14,6 +14,7 @@ This section describes how to install Impulse
 ### Contributors on GitHub
 * [Anthony Nguyen](https://github.com/resolutedreamer)
 * [Eric Du](https://github.com/resolutedreamer)
+* [Ryan Ho](https://github.com/horyan)
 
 ### Third party libraries
 Third party libraries used go here:
