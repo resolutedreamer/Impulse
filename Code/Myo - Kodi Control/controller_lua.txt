@@ -1,0 +1,49 @@
+scriptId = "com.thalmic.examples.testscript"
+scriptTitle = "Kodi Control"
+scriptDescription = "A simple script to control Kodi with key"
+scriptDetailsUrl = ""
+
+myo.unlock("hold")
+
+function onForegroundWindowChange(app, title)  
+    myo.unlock("hold")
+    return true
+end
+
+
+function onPoseEdge(pose, edge)
+    myo.debug("HELLO")
+    myo.debug(pose .. " " .. edge)
+    if pose == 'fist' and edge == 'on' then    
+        myo.keyboard("space","press")
+        -- if playing:
+        --     doPlayingStuff()        #begin playing stuff
+        -- else:
+        --     doPausingStuff()        #stop playing stuff
+    end
+    
+    if pose == 'waveOut' and edge == 'on' then
+        myo.keyboard("period", "press")
+        -- doNextSongStuff()
+    end
+    
+    if (pose == 'waveIn') and (edge == 'on') then
+        myo.keyboard("comma", "press", "") --#previous song is 2x comma
+        myo.keyboard("comma", "press", "")
+        -- doPreviousSongStuff()
+    end
+    
+    if (pose == 'fingersSpread') and (edge == "on") then
+        myo.keyboard("comma", "press", "")
+        -- doRepeatSongStuff()
+    end
+    
+    if pose ~= 'unknown' or pose ~= 'rest' and edge == 'on' then
+        myo.unlock("hold");
+    else
+        myo.unlock('hold')
+        --    myo.notifyUserAction()
+        --    # Tell the #myo to stay unlocked only for a short period. This allows the #myo to stay unlocked while poses
+        --    # are being performed, but lock after inactivity.
+    end
+end 
