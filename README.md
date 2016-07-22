@@ -14,15 +14,17 @@ This section describes how to install Impulse
 
 ### Contributors on GitHub
 * [Anthony Nguyen](https://github.com/resolutedreamer)
-* [Eric Du](https://github.com/resolutedreamer)
+* [Eric Du](https://github.com/edu5)
 * [Ryan Ho](https://github.com/horyan)
+* [Kevin Kim]
+* [Dhiren Lad]
 
 ### Third party libraries
 Third party libraries used go here:
-*  [Bluetooth Generic Attribute Profile - Heart Rate Service](https://code.msdn.microsoft.com/windowsapps/Bluetooth-Generic-5a99ef95)
+*  [pyserial](https://github.com/pyserial/pyserial)
 
 ## License 
-* This project is licensed under the Apache License - see the [LICENSE.md](https://github.com/resolutedreamer/BLE_UART_8001/blob/master/LICENSE) file for details
+* This project is licensed under the Apache License - see the [LICENSE.md](https://github.com/resolutedreamer/Impulse/blob/master/LICENSE) file for details
 
 ## Version 
 * Version 1.0
