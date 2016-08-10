@@ -6,9 +6,12 @@ import pyaudio
 import wave  
 from scipy.io import wavfile # get the api
 import sys
-import msvcrt
 import requests
 import json
+from time import sleep
+
+#For Myo Armband controls
+#import msvcrt
 
 ##play = True;
 ##back = False;
@@ -34,7 +37,7 @@ def send_to_mongo(color):
 	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 	data = {'_id':{"$oid":'569b85f1e4b017432d15da2d'},'currentColor': color}
 	data_json = json.dumps(data)
-	response = requests.put(url, data = data_json, headers=headers )
+	response = requests.put(url, data = data_json, headers=headers)
 	#print "response"
 	#print response
 	#print response.text
@@ -57,7 +60,6 @@ def playSong(title, com):
     global play, back, restart, forward
     
     fs, data = wavfile.read(title) # load the data
-    count = 0;
     light_mapping = [];
     arduino = serial.Serial(com, 9600)
     data = data.T[0];
@@ -106,6 +108,7 @@ def playSong(title, com):
     #read data  
     data = f.readframes(chunk)  
 
+    light = 0
     #play stream  
     while data != '':
 ##        if (forward == True):
@@ -115,11 +118,12 @@ def playSong(title, com):
         try:
             previous_light = light
             light = light_mapping.pop()
+            print("Previous Light and Current Light")
             print(previous_light)
             print(light)
             if light != previous_light:
                 arduino.write(str(light))
-                send_to_mongo(light)
+                #send_to_mongo(light)
         except:
             pass
         
