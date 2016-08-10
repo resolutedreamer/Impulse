@@ -19,26 +19,14 @@ def main():
     if(len(sys.argv) <= 1):
        print("ERROR: Please input at least one song");
        sys.exit()
-        
+       
     com = raw_input("Input COM: ")
     
     for i in range(1, len(sys.argv)):
         song_name = sys.argv[i];
         playSong(song_name, com)
         sleep(3);
-##    playSong('C:/Users/Dhiren/Desktop/IDEAHacks/LED/New_Thang.wav', 'COM41');
-
-def send_to_parse(color):
-	myAppID = 'BMQIxSTJxn2YwahrfThpngCmTxJmUW7NsiQHxIMk'
-	key = 'rZMPeHeTDAVAodCYoGbeJ6gUmEPLulfGJKWfPHOt'
-	objectID = 'nB1I44ADhg'
-	url = 'https://' + myAppID + ':javascript-key=' + key + '@api.parse.com/1/classes/color/' + objectID
-	data = {'currentColor': color}
-	data_json = json.dumps(data)
-
-	response = requests.put(url, data = data_json )
-	print "response"
-	print response.content
+    ##  playSong('song.wav', 'COM41');
 
 def send_to_mongo(color):
 	mongoID = "b6MjZVfMLjMkaYEWGiOgkqAOYshLnzMg"
@@ -50,8 +38,9 @@ def send_to_mongo(color):
 	#print "response"
 	#print response
 	#print response.text
-    
-            
+
+## TODO: Accept Myo Armband controls
+##
 ##def handleInterrupt():
 ##    key_press = msvcrt.getwch();
 ##    if key_press == ' ':

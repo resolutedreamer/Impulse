@@ -4,19 +4,6 @@ import random
 import requests
 import json
 from time import sleep
-
-def send_to_parse(color):
-	myAppID = 'BMQIxSTJxn2YwahrfThpngCmTxJmUW7NsiQHxIMk'
-	key = 'rZMPeHeTDAVAodCYoGbeJ6gUmEPLulfGJKWfPHOt'
-	objectID = 'nB1I44ADhg'
-	url = 'https://' + myAppID + ':javascript-key=' + key + '@api.parse.com/1/classes/color/' + objectID
-	data = {'currentColor': color}
-	data_json = json.dumps(data)
-
-	response = requests.put(url, data = data_json )
-	print "response"
-	print response.content
-	
 	
 def send_to_mongo(color):
 	mongoID = "b6MjZVfMLjMkaYEWGiOgkqAOYshLnzMg"
@@ -52,19 +39,6 @@ def get_color_random():
 	send_to_mongo(color)
 	return color
 	
-
-def get_color_parse():
-	myAppID = 'BMQIxSTJxn2YwahrfThpngCmTxJmUW7NsiQHxIMk'
-	key = 'rZMPeHeTDAVAodCYoGbeJ6gUmEPLulfGJKWfPHOt'
-	objectID = 'nB1I44ADhg'
-	url = 'https://' + myAppID + ':javascript-key=' + key + '@api.parse.com/1/classes/color/' + objectID
-	response = requests.get(url)
-	json_reponse = response.json()
-	print "json_reponse"
-	print json_reponse
-	final_answer = json_reponse["currentColor"]
-	return final_answer
-
 def get_color_mongo():
 	mongoID = "b6MjZVfMLjMkaYEWGiOgkqAOYshLnzMg"
 	url = 'https://api.mongolab.com/api/1/databases/impulseiot/collections/color/569b85f1e4b017432d15da2d?apiKey=' + mongoID
