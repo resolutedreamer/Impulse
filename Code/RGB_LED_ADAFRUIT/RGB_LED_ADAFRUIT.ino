@@ -5,15 +5,13 @@
 #define REDPIN 5
 #define GREENPIN 6
 #define BLUEPIN 3
-#define FAKEGROUND 4
-#define FADESPEED 3     // make this higher to slow down
+ 
+#define FADESPEED 5     // make this higher to slow down
  
 void setup() {
   pinMode(REDPIN, OUTPUT);
   pinMode(GREENPIN, OUTPUT);
   pinMode(BLUEPIN, OUTPUT);
-  pinMode(FAKEGROUND, OUTPUT);
-  digitalWrite(FAKEGROUND, 0);
 }
  
  
@@ -51,4 +49,3 @@ void loop() {
     delay(FADESPEED);
   } 
 }
-

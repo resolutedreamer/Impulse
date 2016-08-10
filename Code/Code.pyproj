@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b216b3bb-29f5-46b5-b60d-83dfc5933218}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>controlled_blink.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Myo - Kodi Control\controller_lua.txt" />
+    <Content Include="Myo - Kodi Control\desktop.ini" />
+    <Content Include="RGB_LED_ADAFRUIT\desktop.ini" />
+    <Content Include="RGB_LED_DEMO\desktop.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controlled_blink.py" />
+    <Compile Include="reference\hello_gpio.py" />
+    <Compile Include="music_control.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Myo - Kodi Control" />
+    <Folder Include="reference\" />
+    <Folder Include="RGB_LED_ADAFRUIT" />
+    <Folder Include="RGB_LED_DEMO" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
