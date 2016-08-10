@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b216b3bb-29f5-46b5-b60d-83dfc5933218}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>controlled_blink.py</StartupFile>
+    <StartupFile>reference\controlled_blink.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -22,20 +22,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Myo - Kodi Control\controller_lua.txt" />
-    <Content Include="Myo - Kodi Control\desktop.ini" />
-    <Content Include="RGB_LED_ADAFRUIT\desktop.ini" />
-    <Content Include="RGB_LED_DEMO\desktop.ini" />
+    <Content Include="reference\RGB_LED_ADAFRUIT\desktop.ini" />
+    <Content Include="reference\RGB_LED_DEMO\desktop.ini" />
+    <Content Include="RGB_RECEIVE\RGB_Receive.ino" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controlled_blink.py" />
+    <Compile Include="reference\controlled_blink.py" />
     <Compile Include="reference\hello_gpio.py" />
     <Compile Include="music_control.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Myo - Kodi Control" />
     <Folder Include="reference\" />
-    <Folder Include="RGB_LED_ADAFRUIT" />
-    <Folder Include="RGB_LED_DEMO" />
+    <Folder Include="reference\RGB_LED_ADAFRUIT\" />
+    <Folder Include="reference\RGB_LED_DEMO\" />
+    <Folder Include="RGB_RECEIVE\" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
