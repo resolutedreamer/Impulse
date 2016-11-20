@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b216b3bb-29f5-46b5-b60d-83dfc5933218}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>reference\controlled_blink.py</StartupFile>
+    <StartupFile>ImpulseTest.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -13,6 +13,13 @@
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId />
     <InterpreterVersion />
+    <Name>Impulse</Name>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <InterpreterArguments>
+    </InterpreterArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,22 +28,20 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Myo - Kodi Control\controller_lua.txt" />
-    <Content Include="reference\RGB_LED_ADAFRUIT\desktop.ini" />
-    <Content Include="reference\RGB_LED_DEMO\desktop.ini" />
-    <Content Include="RGB_RECEIVE\RGB_Receive.ino" />
+    <Content Include="Myo_Kodi_Control\Myo_Kodi_Control.txt" />
+    <Content Include="Arduino_RGB_Receive\Arduino_RGB_Receive.ino" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="reference\controlled_blink.py" />
-    <Compile Include="reference\hello_gpio.py" />
-    <Compile Include="music_control.py" />
+    <Compile Include="Edison_RGB_Receive\edison_rgb_receive.py" />
+    <Compile Include="Impulse.py" />
+    <Compile Include="ImpulseTest.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Myo - Kodi Control" />
-    <Folder Include="reference\" />
-    <Folder Include="reference\RGB_LED_ADAFRUIT\" />
-    <Folder Include="reference\RGB_LED_DEMO\" />
-    <Folder Include="RGB_RECEIVE\" />
+    <Folder Include="Myo_Kodi_Control\" />
+    <Folder Include="Arduino_RGB_Receive\" />
+    <Folder Include="Edison_RGB_Receive\" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
