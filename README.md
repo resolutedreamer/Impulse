@@ -35,7 +35,7 @@ Download the file "Impulse.py" onto the server connected via serial to the Ardui
 *  [scipy](https://www.scipy.org/)
 
 ## License 
-* This project is licensed under the Apache License - see the [LICENSE.md](https://github.com/resolutedreamer/Impulse/blob/master/LICENSE) file for details
+* This project is licensed under the Apache License - see the [LICENSE](https://github.com/resolutedreamer/Impulse/blob/master/LICENSE) file for details
 
 ## Version 
 * Version 1.0
