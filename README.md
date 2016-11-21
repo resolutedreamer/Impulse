@@ -23,6 +23,8 @@ This section describes how to install Impulse
 ### Third party libraries
 Third party libraries used go here:
 *  [pyserial](https://github.com/pyserial/pyserial)
+*  [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/)
+*  [scipy](https://www.scipy.org/)
 
 ## License 
 * This project is licensed under the Apache License - see the [LICENSE.md](https://github.com/resolutedreamer/Impulse/blob/master/LICENSE) file for details

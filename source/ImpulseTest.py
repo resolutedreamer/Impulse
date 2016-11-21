@@ -16,6 +16,5 @@ class Test_ImpulseHubTest(unittest.TestCase):
     def test_play_all(self):
         self.newImpulse.play_all()
 
-
 if __name__ == '__main__':
     unittest.main()
