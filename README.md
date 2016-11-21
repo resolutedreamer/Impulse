@@ -2,6 +2,7 @@ Impulse
 ======
 ## Music in your hands
 ![Impulse](/assets/graphics/impulse_logo.jpg)
+
 Impulse is a project created for UCLA's hardware hackathon, IDEA Hacks, which ran January 15th-17th 2016. Impulse is designed to use the Myo armband to control the Kodi music player and synchronize the song being played with RGB LED Lights.
 
 #### Screenshot
@@ -9,7 +10,15 @@ Impulse is a project created for UCLA's hardware hackathon, IDEA Hacks, which ra
 ## Getting Started
 
 ### Installation
-This section describes how to install Impulse
+
+#### Arduino Client
+Use the Arduino IDE to program the Arduino with "Arduino_RGB_Receive.ino"
+
+#### Intel Edison Client
+Download the file "edison_rgb_receive.py" onto the Intel Edison device and execute the program.
+
+#### Server
+Download the file "Impulse.py" onto the server connected via serial to the Arduino Client, or connected to MongoLab via the internet. Run the program with the path to the wav files that you want to play as command line arguments.
 
 ## Contributors
 
@@ -17,11 +26,10 @@ This section describes how to install Impulse
 * [Anthony Nguyen](https://github.com/resolutedreamer)
 * [Eric Du](https://github.com/edu5)
 * [Ryan Ho](https://github.com/horyan)
-* [Kevin Kim]
-* [Dhiren Lad]
+* [Kevin Kim]()
+* [Dhiren Lad]()
 
 ### Third party libraries
-Third party libraries used go here:
 *  [pyserial](https://github.com/pyserial/pyserial)
 *  [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/)
 *  [scipy](https://www.scipy.org/)
@@ -34,6 +42,6 @@ Third party libraries used go here:
 
 ## Contact
 #### Anthony Nguyen
-* Homepage: www.resolutedreamer.com
+* Homepage: [http://www.resolutedreamer.com](http://www.resolutedreamer.com)
 
 Last Updated 2016/08/10
