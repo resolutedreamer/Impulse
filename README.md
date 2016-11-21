@@ -5,6 +5,10 @@ Impulse
 
 Impulse is a project created for UCLA's hardware hackathon, IDEA Hacks, which ran January 15th-17th 2016. Impulse is designed to use the Myo armband to control the Kodi music player and synchronize the song being played with RGB LED Lights.
 
+Check it out on YouTube:
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/63a6ebVmFpA/0.jpg)](http://www.youtube.com/watch?v=63a6ebVmFpA "Impulse - Demo")
+
 #### Screenshot
 ![Screenshot](/assets/screenshots/ss1.png)
 ## Getting Started
