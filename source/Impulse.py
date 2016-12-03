@@ -124,8 +124,11 @@ class ImpulseController():
         title, chunk_size = song_data
         ## Play the song
         print("Let the song begin!")
-        arduino = serial.Serial(com, 9600)
-
+        try:
+            arduino = serial.Serial(com, 9600)
+        except:
+            print "Couldn't open serial port"
+            
         # open a wav format music
         f = wave.open(title,"rb")  
 
