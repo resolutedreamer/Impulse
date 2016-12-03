@@ -9,4 +9,4 @@ before_install:
 # command to install dependencies
 install: "pip install -r ./source/requirements.txt"
 # command to run tests
-script: python ./source/ImpulseTest.py 'ttyS0' ./assets/song.wav
+script: python ./source/ImpulseTest.py '/dev/ttyS0' ./assets/song.wav
