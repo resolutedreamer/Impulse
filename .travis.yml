@@ -3,6 +3,9 @@ sudo: required
 language: python
 python:
   - "2.7"
+# dependencies for pyaudio
+before_install:
+  - "sudo apt-get install libjack-jackd2-dev portaudio19-dev"
 # command to install dependencies
 install: "pip install -r ./source/requirements.txt"
 # command to run tests
