@@ -96,22 +96,22 @@ class ImpulseController():
         intervalSize = (minimum - maximum)/7;
 
         while(index < total_size):
-          if(data[index] < -18000):
+          if(data[index] < -3*intervalSize):
               light_mapping.append(0);
-          elif(data[index] < -16000):
+          elif(data[index] < -2*intervalSize):
               light_mapping.append(1);
-          elif(data[index] < -5000):
+          elif(data[index] < -intervalSize):
               light_mapping.append(2);
           elif(data[index] < 0):
               light_mapping.append(3);
-          elif(data[index] < 5000):
+          elif(data[index] < intervalSize):
               light_mapping.append(4);
-          elif(data[index] < 16000):
+          elif(data[index] < 2*intervalSize):
               light_mapping.append(5);
-          else:
+          elif (data[index] < 3*intervalSize):
               light_mapping.append(6);
           index += chunk_size;
-        return (title, chunk_size)
+        return (title, chunk_size, light_mapping)
 
     def play_all(self):
         print "Playing Full Playlist"
@@ -121,55 +121,57 @@ class ImpulseController():
             sleep(3);
 
     def play_song(self, song_data, com):
-        title, chunk_size = song_data
+        title, chunk_size, light_mapping = song_data
         ## Play the song
         print("Let the song begin!")
         try:
             arduino = serial.Serial(com, 9600)
+                
+            # open a wav format music
+            f = wave.open(title,"rb")  
+    
+            # instantiate PyAudio  
+            p = pyaudio.PyAudio()  
+    
+            # open stream  
+            stream = p.open(format = p.get_format_from_width(f.getsampwidth()),  
+                            channels = f.getnchannels(),  
+                            rate = f.getframerate(),  
+                            output = True)  
+            #read data  
+            data = f.readframes(chunk_size)
+            light = 0
+            def signal_handler(signal, frame):
+                print 'Closing COM port'
+                arduino.close()
+                sys.exit(0)
+        
+            signal.signal(signal.SIGINT, signal_handler)
+    
+            #play stream  
+            while data != '':
+##              if (forward == True):
+##                  forward = False
+##                  return
+##              if msvcrt.kbhit():
+##                  handleInterrupt()
+                try:
+                    previous_light = light
+                    light = light_mapping.pop()
+                    if light != previous_light:
+                        arduino.write(str(light))
+                except:
+                    pass        
+                stream.write(data)  
+                data = f.readframes(chunk_size)
+            # stop stream
+            stream.stop_stream()
+            stream.close()
+    
+            # close PyAudio  
+            p.terminate()
+            arduino.close()
+
         except:
             print "Couldn't open serial port"
-            
-        # open a wav format music
-        f = wave.open(title,"rb")  
-
-        # instantiate PyAudio  
-        p = pyaudio.PyAudio()  
-
-        # open stream  
-        stream = p.open(format = p.get_format_from_width(f.getsampwidth()),  
-                        channels = f.getnchannels(),  
-                        rate = f.getframerate(),  
-                        output = True)  
-        #read data  
-        data = f.readframes(chunk_size)
-        light = 0
-        def signal_handler(signal, frame):
-            print 'Closing COM port'
-            arduino.close()
-            sys.exit(0)
-    
-        signal.signal(signal.SIGINT, signal_handler)
-
-        #play stream  
-        while data != '':
-##          if (forward == True):
-##               forward = False
-##               return
-##          if msvcrt.kbhit():
-##              handleInterrupt()
-            try:
-                previous_light = light
-                light = light_mapping.pop()
-                if light != previous_light:
-                    arduino.write(str(light))
-            except:
-                pass        
-            stream.write(data)  
-            data = f.readframes(chunk_size)
-        # stop stream
-        stream.stop_stream()
-        stream.close()
-
-        # close PyAudio  
-        p.terminate()
-        arduino.close()
+        
