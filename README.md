@@ -37,9 +37,11 @@ Download the file "Impulse.py" onto the server connected via serial to the Ardui
 *  [pyserial](https://github.com/pyserial/pyserial)
 *  [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/)
 *  [scipy](https://www.scipy.org/)
+*  [WHEN IT RAINS](http://opsound.org/artist/peterrudenko/)
 
 ## License 
 * This project is licensed under the Apache License - see the [LICENSE](https://github.com/resolutedreamer/Impulse/blob/master/LICENSE) file for details
+* The song WHEN IT RAINS is licenced under [Creative Commons Attribution-ShareAlike license](https://creativecommons.org/licenses/by-sa/3.0/)
 
 ## Version 
 * Version 1.0

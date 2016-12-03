@@ -1,6 +1,10 @@
 #!usr/bin/env python  
 #coding=utf-8  
 
+import sys
+import random
+import json
+import requests
 import serial
 import pyaudio  
 import wave  
@@ -9,28 +13,27 @@ import signal
 from time import sleep
 
 #For Myo Armband controls
-import msvcrt
+#import os
+#if os.name == 'nt':
+#    import msvcrt
 
 
 class ImpulseController():
-    def __init__(self, playlist):
+    def __init__(self, playlist, com):
         self.play = True
         self.back = False
         self.restart = False
         self.forward = False
        
-        self.get_com_port()
+        self.com = com
         self.playlist = playlist
         self.processed_songs = []
         for song in playlist:
             new_song = self.process_song(song)
             self.processed_songs.append(new_song)
+        print "Playlist contains: " + str(self.processed_songs)
     
-    def get_com_port(self):
-        self.com = raw_input("Input COM: ")
-        return
-
-    def send_to_mongo(color):
+    def send_to_mongo(self, color):
         mongoID = "b6MjZVfMLjMkaYEWGiOgkqAOYshLnzMg"
         url = 'https://api.mongolab.com/api/1/databases/impulseiot/collections/color?apiKey=' + mongoID
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -38,11 +41,11 @@ class ImpulseController():
         data = {'_id':{"$oid":'569b85f1e4b017432d15da2d'},'currentColor': color}
         data_json = json.dumps(data)
         response = requests.put(url, data = data_json, headers=headers )
-        #print "response"
-        #print response
+        print "response"
+        print response
         #print response.text
     
-    def get_color_random():
+    def get_color_random(self):
         color = 0
         random_val = random.random()
         print "random_val = " + str(random_val)
@@ -60,7 +63,7 @@ class ImpulseController():
             color = 5
         elif random_val > (6.0/7.0) and random_val <= (7.0/7.0):
             color = 6
-        send_to_mongo(color)
+        self.send_to_mongo(color)
         return color
 
     ## TODO: Accept Myo Armband controls
@@ -111,8 +114,10 @@ class ImpulseController():
         return (title, chunk_size)
 
     def play_all(self):
-        for song in processed_songs:
-            self.play_song(song_name, self.com)
+        print "Playing Full Playlist"
+        for song in self.processed_songs:
+            print song
+            self.play_song(song, self.com)
             sleep(3);
 
     def play_song(self, song_data, com):
